@@ -1,10 +1,18 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, getPhoneBookValue } from '../../redux/phoneBookSlice';
+import { getPhoneBookValue } from '../../redux/phoneBookSlice';
 import { FormStyle } from './Form.styled';
 import { InputStyle, LabelStyle, ButtonStyle } from 'components/App.styled';
+import { postContactThunk } from 'services/fetchContacts';
+
+export const options = {
+  width: '400px',
+  position: 'center-center',
+  timeout: 3000,
+  fontSize: '20px',
+};
 
 export const Form = () => {
   const [name, setName] = useState('');
@@ -14,20 +22,15 @@ export const Form = () => {
 
   const onSubmitAddContact = event => {
     event.preventDefault();
-    const data = { name, number };
-    const newObj = { ...data, id: nanoid() };
+    const newObj = { name, number };
+    // const newObj = { ...data, id: nanoid() };
 
     if (isNameNew(phoneBook, newObj) !== undefined) {
-      Notify.warning(`${newObj.name} is already in contacts`, {
-        width: '400px',
-        position: 'center-center',
-        timeout: 3000,
-        fontSize: '20px',
-      });
+      Notify.warning(`${newObj.name} is already in contacts`, options);
       return;
     }
 
-    dispatch(addContact(newObj));
+    dispatch(postContactThunk(newObj));
 
     reset();
   };
