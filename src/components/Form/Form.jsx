@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPhoneBookValue } from '../../redux/phoneBookSlice';
@@ -64,7 +64,7 @@ export const Form = () => {
   return (
     <FormStyle onSubmit={onSubmitAddContact}>
       <LabelStyle>
-        Name:
+        Name
         <InputStyle
           type="text"
           name="name"
@@ -74,7 +74,7 @@ export const Form = () => {
         />
       </LabelStyle>
       <LabelStyle>
-        Phone number:
+        Phone number
         <InputStyle
           type="tel"
           name="number"

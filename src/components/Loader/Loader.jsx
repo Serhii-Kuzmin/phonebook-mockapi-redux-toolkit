@@ -1,10 +1,9 @@
-import React from 'react';
+import { DNA } from 'react-loader-spinner';
 import { WrapperLoader } from './Loader.styled';
-import { Dna } from 'react-loader-spinner';
 
 export const Loader = () => (
   <WrapperLoader>
-    <Dna
+    <DNA
       visible={true}
       height="80"
       width="80"

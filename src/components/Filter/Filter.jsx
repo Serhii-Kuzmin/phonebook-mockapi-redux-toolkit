@@ -1,6 +1,7 @@
 import { LabelStyle, InputStyle } from 'components/App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterSet, getFilter } from '../../redux/filterSlice';
+
 export const Filter = () => {
   const dispatch = useDispatch();
   const filterPhoneBook = useSelector(getFilter);
