@@ -2,10 +2,16 @@ import { ContactListStyle, ContactItemStyle } from './ContactsList.styled';
 import { ButtonStyle } from 'components/App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from '../../redux/filterSlice';
-import { delContact, getPhoneBookValue } from '../../redux/phoneBookSlice';
+import { getPhoneBookValue } from '../../redux/phoneBookSlice';
+import { useEffect } from 'react';
+import { delContactThunk, getContactsThunk } from 'services/fetchContacts';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getContactsThunk());
+  }, [dispatch]);
 
   const phoneBook = useSelector(getPhoneBookValue);
   const filterPhoneBook = useSelector(getFilter);
@@ -16,7 +22,7 @@ export const ContactsList = () => {
   );
 
   const deleteContact = contactId => {
-    dispatch(delContact(contactId));
+    dispatch(delContactThunk(contactId));
   };
 
   return (
