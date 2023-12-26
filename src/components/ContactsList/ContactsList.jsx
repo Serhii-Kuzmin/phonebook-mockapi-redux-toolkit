@@ -3,7 +3,10 @@ import { ButtonStyle } from 'components/App.styled';
 import { getFilter } from '../../redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPhoneBookValue } from '../../redux/phoneBookSlice';
-import { delContactThunk, getContactsThunk } from 'services/fetchContacts';
+import {
+  delContactThunk,
+  getContactsThunk,
+} from '../../redux/services/fetchContacts';
 import { useEffect } from 'react';
 
 export const ContactsList = () => {

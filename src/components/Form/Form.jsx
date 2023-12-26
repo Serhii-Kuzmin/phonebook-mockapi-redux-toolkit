@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPhoneBookValue } from '../../redux/phoneBookSlice';
 import { FormStyle } from './Form.styled';
 import { InputStyle, LabelStyle, ButtonStyle } from 'components/App.styled';
-import { postContactThunk } from 'services/fetchContacts';
+import { postContactThunk } from '../../redux/services/fetchContacts';
 
 export const options = {
   width: '400px',
