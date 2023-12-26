@@ -62,7 +62,7 @@ export const Form = () => {
   return (
     <FormStyle onSubmit={onSubmitAddContact}>
       <LabelStyle>
-        Name
+        Name:
         <InputStyle
           type="text"
           name="name"
@@ -72,7 +72,7 @@ export const Form = () => {
         />
       </LabelStyle>
       <LabelStyle>
-        Phone number
+        Phone number:
         <InputStyle
           type="tel"
           name="number"
